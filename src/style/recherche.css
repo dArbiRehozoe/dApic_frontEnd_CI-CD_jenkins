@@ -1,0 +1,75 @@
+
+
+.microphone{
+
+        border-top-right-radius: 32px !important;
+   border-bottom-right-radius: 32px !important;
+   background-color: #fff;
+}
+
+
+
+.google{
+    
+         border-top-left-radius: 32px !important;
+   border-bottom-left-radius: 32px !important;
+   background-color: #fff;
+
+}
+
+.input-group-prepend {
+   margin-right: -2px !important;
+}
+
+
+.input-group-append {
+   margin-left: -2px !important;
+}
+
+.form-control:focus {
+   color: #495057; 
+   background-color: #fff;
+   border-color: #ced4da;
+   outline: 0;
+   box-shadow: 0 0 0 0 !important;
+
+}
+#collection{
+   margin-left: 230px;
+}
+#public{
+margin-top: 10px;
+  width: 40rem;
+}
+#drop{
+   margin-top:-10px;
+   margin-left:170px
+}
+.sale{
+   margin-left:170px
+}
+@media screen and (max-width: 580px) {
+   #collection{
+     margin-left: 100px;
+   }
+   .home{
+      margin-left: -100px;
+   }
+   #public{
+      width: 18rem;
+      margin-left: 100px;
+   
+   }
+   #drop{
+      margin-top:-10px;
+      margin-left:-60px
+   }
+.sale{
+   margin-left:90px
+}
+ }
+.form-control{
+
+     border-right: 0 !important;
+     border-left: 0 !important;
+}
