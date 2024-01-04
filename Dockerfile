@@ -6,6 +6,7 @@ WORKDIR /app
 COPY . .
 # install node modules and build assets
 RUN npm ci --force
+RUN npm run build
 # nginx state for serving content
 FROM nginx:alpine
 # Set working directory to nginx asset directory
