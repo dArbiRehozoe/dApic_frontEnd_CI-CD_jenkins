@@ -1,20 +1,20 @@
-
-# ==== CONFIGURE =====
-# Use a Node 16 base image
-FROM node:alpine 
-# Set the working directory to /app inside the container
+# Name the node stage "builder"
+FROM node:alpine AS builder
+# Set working directory
 WORKDIR /app
-# Copy app files
+# Copy all files from current directory to working dir in image
 COPY . .
-# ==== BUILD =====
-# Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
+# install node modules and build assets
 RUN npm ci --force
-# Build the app
-RUN npm run build
-# ==== RUN =======
-# Set the env to "production"
-ENV NODE_ENV production
-# Expose the port on which the app will be running (3000 is the default that `serve` uses)
-EXPOSE 3000
-# Start the app
-CMD [ "npx", "serve", "build" ]
+# nginx state for serving content
+FROM nginx:alpine
+# Set working directory to nginx asset directory
+WORKDIR /usr/share/nginx/html
+# Remove default nginx static assets
+RUN rm -rf ./*
+# Copy static assets from builder stage
+COPY --from=builder /app/build .
+# Copy custom Nginx configuration
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Containers run nginx with global directives and daemon off
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
