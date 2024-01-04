@@ -2,13 +2,15 @@ pipeline {
     agent any
 
     environment {
+        GIT_CREDENTIALS = credentials('1')
         DOCKERHUB_CREDENTIALS = credentials('2')
     }
 
     stages {
         stage('gitclone') {
             steps {
-                git 'https://github.com/dArbiRehozoe/projetformation_client.git'
+                withCredentials([usernamePassword(credentialsId: '1', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
+                git url: 'https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/dArbiRehozoe/projetformation_client.git'
             }
         }
 
