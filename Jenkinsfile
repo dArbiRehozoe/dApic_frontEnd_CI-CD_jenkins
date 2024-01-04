@@ -10,10 +10,10 @@ pipeline {
         stage('gitclone') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: '1', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
-                        // Utilisez la substitution de chaîne Groovy
-                        def gitUrl = "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/dArbiRehozoe/projetformation_client.git"
-                        git url: gitUrl
+                withCredentials([usernamePassword(credentialsId: '1', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
+                // Utilisez la substitution de chaîne Groovy de manière explicite
+                def gitUrl = "https://" + env.GIT_USERNAME + ":" + env.GIT_PASSWORD + "@github.com/dArbiRehozoe/projetformation_client.git"
+                git url: gitUrl
                     }
                 }
             }
