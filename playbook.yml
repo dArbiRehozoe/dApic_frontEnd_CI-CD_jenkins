@@ -1,11 +1,8 @@
 ---
-- name:  step five deploy apps for k8s cluster
-  hosts: all
-  vars:
-    ansible_ssh_common_args: '-o StrictHostKeyChecking=no'
-  become: yes
+- name: Test SSH Connection
+  hosts: k8s
   tasks:
-  roles:
-    - role: deploye_app
+    - name: Ping the host
+      ping:
         
 
