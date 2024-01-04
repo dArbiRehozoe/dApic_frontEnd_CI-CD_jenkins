@@ -9,16 +9,11 @@ pipeline {
     stages {
         stage('gitclone') {
             steps {
-                withCredentials([usernamePassword(credentialsId: '1', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
-                git url: 'https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/dArbiRehozoe/projetformation_client.git'
-            }
-        }
-    }
-        stage('Build') {
-            steps {
                 script {
-                    // Utilisez le plugin Docker pour construire l'image
-                    docker.build('darbi/projetformation_client:latest')
+                    withCredentials([usernamePassword(credentialsId: '1', usernameVariable: 'GIT_USERNAME', passwordVariable: 'GIT_PASSWORD')]) {
+                        // Utilisez l'URL Git avec les variables d'environnement correctement référencées
+                        git url: "https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/dArbiRehozoe/projetformation_client.git"
+                    }
                 }
             }
         }
