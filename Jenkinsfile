@@ -13,7 +13,7 @@ pipeline {
                 git url: 'https://${GIT_USERNAME}:${GIT_PASSWORD}@github.com/dArbiRehozoe/projetformation_client.git'
             }
         }
-
+    }
         stage('Build') {
             steps {
                 script {
@@ -46,5 +46,4 @@ pipeline {
             }
         }
     }
-}
 }
