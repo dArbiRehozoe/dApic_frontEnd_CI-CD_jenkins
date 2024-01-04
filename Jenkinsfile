@@ -40,7 +40,7 @@ pipeline {
 
         stage('Deploy with Ansible') {
             steps {
-                // Ajoutez ici votre étape de déploiement avec Ansible comme mentionné précédemment
+                ansiblePlaybook playbook: 'deploy.yml'
             }
         }
     }
