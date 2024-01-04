@@ -1,0 +1,9 @@
+---
+- name:  step five deploy apps for k8s cluster
+  hosts: all
+  become: yes
+  tasks:
+  roles:
+    - role: deploye_app
+        
+
