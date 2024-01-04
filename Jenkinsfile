@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('gitclone') {
             steps {
-                git 'https://github.com/dArbiRehozoe/builddocker.git'
+                git 'https://github.com/dArbiRehozoe/projetformation_client.git'
             }
         }
 
