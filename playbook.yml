@@ -1,8 +1,9 @@
 ---
-- name: Test SSH Connection
-  hosts: k8s
+- name:  step five deploy apps for k8s cluster
+  hosts: all
+  become: yes
   tasks:
-    - name: Ping the host
-      ping:
+  roles:
+    - role: deploye_app
         
 
