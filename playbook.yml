@@ -1,6 +1,6 @@
 ---
 - name:  step five deploy apps for k8s cluster
-  hosts: label_environment_nodemaster
+  hosts: all
   become: yes
   tasks:
   roles:
