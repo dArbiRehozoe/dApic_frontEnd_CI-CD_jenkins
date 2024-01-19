@@ -64,7 +64,7 @@ const apikey=process.env.REACT_APP_API_URL;
               <div className="profilePic">
           <img src={require('../mesPhotos/logo1.png')}  style={{width:"100%",height:"100%"}} />
               </div>
-          <h5 style={{color:'white'}}>Se connécter a d'Apic</h5>
+          <h5 style={{color:'white'}}>Se connécter a d'Apic v1</h5>
             <br />   <br />
             <input className="form-control me-2 input1" type="search"
             name="username"
