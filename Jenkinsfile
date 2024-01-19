@@ -39,7 +39,6 @@ pipeline {
                     sh 'docker push darbi/projetformation_client:v1'
                     }
                 }
-            }
         }
 
         stage('chemain') {
