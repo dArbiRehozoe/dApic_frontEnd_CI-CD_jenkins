@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: darbi/projetformation_client:v1.2
+        image: darbi/projetformation_client:v1
         ports:
         - containerPort: 80
 ---
