@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     // Utilisez le plugin Docker pour construire l'image
-                    sh 'docker build darbi/projetformation_client:v1'
+                    docker.build('darbi/projetformation_client:v1')
                 }
             }
         }
@@ -36,9 +36,12 @@ pipeline {
         stage('Push') {
             steps {
                 script {
-                    sh 'docker push darbi/projetformation_client:v1'
+                    // Utilisez le plugin Docker pour pousser l'image vers Docker Hub
+                    docker.withRegistry('https://registry.hub.docker.com', '2') {
+                        docker.image('darbi/projetformation_client:v1').push()
                     }
                 }
+            }
         }
 
         stage('chemain') {
